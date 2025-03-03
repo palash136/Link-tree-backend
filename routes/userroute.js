@@ -42,7 +42,7 @@ router.put("/", authMiddleware, async (req, res, next) => {
 
         // If password is provided, hash it before saving
         if (password) {
-            const bcrypt = require("bcrypt");
+            const bcrypt = require("bcryptjs");
             const hashedPassword = await bcrypt.hash(password, 10);
             updatedData.password = hashedPassword;
         }
